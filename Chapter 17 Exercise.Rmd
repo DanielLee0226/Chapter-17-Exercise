@@ -9,6 +9,8 @@ Setup
 library(tidyverse)
 library(mosaic)
 library(DataComputing)
+install.packages("party")
+library(party)
 ```
 
 
@@ -34,14 +36,24 @@ mod1 <- party::ctree(
 plot(mod1, type="simple")
 ```
 
-  
-  
+```{r}
+CompleteCases %>%
+  mutate(probability = as.numeric(predict(mod1)),
+         likelihood = 
+           ifelse(diabetic,
+                  probability,
+                  1-probability)) %>%
+  summarise(log_likelihood = sum(log(likelihood)))
+```
+
+
 ### Problem 17.2
 ```{r}
 Houses <-
   read.file("http://tiny.cc/dcf/houses-for-sale.csv")
 ```
-  1. Price = response variable
-  2. No
-  3. 180000-151000 = 29000
-  4. Houses with 1 or more fireplaces is associated with higher price = $502,000
+  
+1. Price = response variable
+2. No
+3. 180000-151000 = 29000
+4. Houses with 1 or more fireplaces is associated with higher price = $502,000
