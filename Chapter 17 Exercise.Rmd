@@ -1,0 +1,26 @@
+---
+title: "Chapter 17 Exercise"
+output: html_notebook
+Name: Daniel Lee
+---
+
+### Problem 17.1
+  
+  
+  
+  
+### Problem 17.2
+```{r}
+library(tidyverse)
+library(mosaic)
+library(DataComputing)
+
+Houses <-
+  read.file("http://tiny.cc/dcf/houses-for-sale.csv")
+View(Houses)
+
+```
+  1. Price = response variable
+  2. No
+  3. 
+  4. 
