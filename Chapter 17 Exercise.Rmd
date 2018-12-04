@@ -4,17 +4,40 @@ output: html_notebook
 Name: Daniel Lee
 ---
 
-### Problem 17.1
-  
-  
-  
-  
-### Problem 17.2
+Setup
 ```{r}
 library(tidyverse)
 library(mosaic)
 library(DataComputing)
+```
 
+
+### Problem 17.1
+```{r}
+NCHS %>%
+  na.omit() %>%
+  nrow()
+
+CompleteCases <-
+  NCHS %>%
+  select(diabetic, weight, age, bmi, chol, smoker) %>%
+  na.omit()
+
+CompleteCases %>%
+  nrow()
+```
+
+```{r}
+mod1 <- party::ctree(
+  diabetic ~ weight + chol,
+  data=CompleteCases) 
+plot(mod1, type="simple")
+```
+
+  
+  
+### Problem 17.2
+```{r}
 Houses <-
   read.file("http://tiny.cc/dcf/houses-for-sale.csv")
 ```
