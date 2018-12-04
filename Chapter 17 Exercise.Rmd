@@ -17,10 +17,8 @@ library(DataComputing)
 
 Houses <-
   read.file("http://tiny.cc/dcf/houses-for-sale.csv")
-View(Houses)
-
 ```
   1. Price = response variable
   2. No
-  3. 
-  4. 
+  3. 180000-151000 = 29000
+  4. Houses with 1 or more fireplaces is associated with higher price = $502,000
